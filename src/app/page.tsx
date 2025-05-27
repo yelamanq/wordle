@@ -6,13 +6,7 @@ import Keyboard from "@/components/shared/Keyboard";
 import words from "@/data/words.json";
 import { useEffect, useState } from "react";
 import { useWordleInput } from "@/hooks/useWordleInput";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import Modal from "@/components/shared/Modal";
 
 export default function Home() {
   const [solution, setSolution] = useState("HELLO");
@@ -47,23 +41,11 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <div className="flex justify-center">
-              <div className="w-10 h-10 rounded-full bg-[#10B981] opacity-20"></div>
-            </div>
-            <DialogTitle className="flex justify-center">
-              {gameState === "won" ? "Congratulations!" : "Game Over"}
-            </DialogTitle>
-            <DialogDescription className="flex justify-center">
-              {gameState === "won"
-                ? "You won the game! Great job!"
-                : "You lost the game. Better luck next time!"}
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        gameState={gameState}
+      />
       <div className="flex flex-col items-center gap-[100px] mt-[100px]">
         <Board
           solution={solution}
