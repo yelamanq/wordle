@@ -40,12 +40,12 @@ export default function Modal({
               )}
             </div>
             <DialogTitle className="flex justify-center text-[22px] font-bold">
-              {gameState === "won" ? "Congratulations!" : "Game Over"}
+              {gameState === "won" ? "Congratulations!" : "Game Over!"}
             </DialogTitle>
             <DialogDescription className="flex justify-center text-[14px] font-medium">
               {gameState === "won"
                 ? "You won the game! Great job!"
-                : "You lost the game. Better luck next time!"}
+                : `The correct word was ${solution}. Better luck next time!`}
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-center">

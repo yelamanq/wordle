@@ -9,7 +9,7 @@ import { useWordleInput } from "@/hooks/useWordleInput";
 import Modal from "@/components/shared/Modal";
 
 export default function Home() {
-  const [solution, setSolution] = useState("HELLO");
+  const [solution, setSolution] = useState("");
   const [guesses, setGuesses] = useState<string[]>([]);
   const [currentGuess, setCurrentGuess] = useState("");
   const [gameState, setGameState] = useState<"ongoing" | "won" | "lost">(
@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     const solution = words[Math.floor(Math.random() * words.length)];
-    // setSolution(solution);
+    setSolution(solution);
   }, []);
 
   useEffect(() => {
