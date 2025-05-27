@@ -45,6 +45,8 @@ export default function Home() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         gameState={gameState}
+        guesses={guesses}
+        solution={solution}
       />
       <div className="flex flex-col items-center gap-[100px] mt-[100px]">
         <Board
